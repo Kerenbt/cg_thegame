@@ -11,6 +11,7 @@ from kivy_logger import *
 from kivy.storage.jsonstore import JsonStore
 from kivy.graphics import Rectangle
 from kivy.uix.label import Label
+from kivy.clock import Clock
 
 
 class Item(Scatter, WidgetLogger):
@@ -111,6 +112,10 @@ class CuriosityGame:
         for key, value in self.items.items():
             self.the_widget.add_widget(value)
 
+        # set the timer of the game
+        Clock.schedule_once(self.end_game, 5)
+
+
     def on_play(self, name, par):
         self.items[name].on_play()
         text = self.items[name].get_text()
@@ -121,6 +126,9 @@ class CuriosityGame:
         self.items[name].on_stop()
         self.the_widget.cg_lbl.text = ''
 
+    def end_game(self, dt):
+        self.the_app.sm.current = 'question'
+
 
 class CuriosityWidget(FloatLayout):
     cg_lbl = None  # ObjectProperty(None)
@@ -130,9 +138,9 @@ class CuriosityWidget(FloatLayout):
         with self.canvas.before:
             self.rect = Rectangle(source='cg_background_img.jpg')
             self.bind(size=self._update_rect, pos=self._update_rect)
-        cg_lbl = Label(font_name='DejaVuSans.ttf', halign='right', text='hello world',
-                       pos=[10, 100], font_size='30sp')
-        self.add_widget(cg_lbl)
+        self.cg_lbl = Label(font_name='DejaVuSans.ttf', halign='right', text='hello world',
+                            pos=(10, 100), font_size='30sp')
+        self.add_widget(self.cg_lbl)
 
     def _update_rect(self, instance, value):
         self.rect.pos = instance.pos
