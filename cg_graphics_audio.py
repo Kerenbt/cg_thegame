@@ -1,4 +1,6 @@
 #!/usr/bin/kivy
+# -*- coding: utf-8 -*-
+
 import kivy
 kivy.require('1.0.6')
 
@@ -112,7 +114,7 @@ class CuriosityGame:
             self.the_widget.add_widget(value)
 
         # set the timer of the game
-        Clock.schedule_once(self.end_game, 60)
+        Clock.schedule_once(self.end_game, 5)
 
 
     def on_play(self, name, par):

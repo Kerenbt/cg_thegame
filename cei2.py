@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 from kivy.graphics import Rectangle
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button

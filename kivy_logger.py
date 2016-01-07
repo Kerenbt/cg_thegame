@@ -9,20 +9,20 @@ from os.path import join
 
 
 class DataMode:
-    file = 0
-    encrypted = 1
-    communication = 2
+    file = 'file'
+    encrypted = 'encrypted'
+    communication = 'communication'
 
 
 class LogAction:
-    none = 0
-    press = 1
-    play = 2
-    stop = 3
-    move = 4
-    down = 5
-    up = 6
-    text = 7
+    none = 'none'
+    press = 'press'
+    play = 'play'
+    stop = 'stop'
+    move = 'move'
+    down = 'down'
+    up = 'up'
+    text = 'text'
 
 
 class KL:
@@ -112,7 +112,7 @@ class KivyLogger:
         KivyLogger.t0 = datetime.now()
 
     @staticmethod
-    def insert(action=LogAction.none, obj='', comment='', t=None, mode=[]):
+    def insert(action=LogAction.none, obj='', comment='', t=None, mode=None):
         if t is None:
             t = datetime.now()
         data = {'time':t, 'action':action, 'obj':obj, 'comment':comment}
@@ -142,7 +142,7 @@ class KivyLogger:
     @staticmethod
     def to_str(log):
         data = {'time': log['time'].strftime('%Y_%m_%d_%H_%M_%S_%f'),
-                'action': log['action'].name,
+                'action': log['action'],
                 'obj': log['obj'],
                 'comment': log['comment']}
         return str(json.dumps(data))
