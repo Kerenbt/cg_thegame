@@ -119,43 +119,43 @@
       "text": {
         "1": {
           "text": "exc text 1",
-          "audio": "ExactScience1.wav"
+          "audio": "ExactSciences1.wav"
         },
         "2": {
           "text": "exc text 2",
-          "audio": "ExactScience2.wav"
+          "audio": "ExactSciences2.wav"
         },
         "3": {
           "text": "exc text 1",
-          "audio": "ExactScience3.wav"
+          "audio": "ExactSciences3.wav"
         },
         "4": {
           "text": "exc text 1",
-          "audio": "ExactScience4.wav"
+          "audio": "ExactSciences4.wav"
         },
         "5": {
           "text": "exc text 1",
-          "audio": "ExactScience5.wav"
+          "audio": "ExactSciences5.wav"
         },
         "6": {
           "text": "exc text 1",
-          "audio": "ExactScience6.wav"
+          "audio": "ExactSciences6.wav"
         },
         "7": {
           "text": "exc text 1",
-          "audio": "ExactScience7.wav"
+          "audio": "ExactSciences7.wav"
         },
         "8": {
           "text": "exc text 1",
-          "audio": "ExactScience8.wav"
+          "audio": "ExactSciences8.wav"
         },
         "9": {
           "text": "exc text 1",
-          "audio": "ExactScience9.wav"
+          "audio": "ExactSciences9.wav"
         },
         "10": {
           "text": "exc text 1",
-          "audio": "ExactScience10.wav"
+          "audio": "ExactSciences10.wav"
         }
       }
     },
@@ -270,43 +270,43 @@
       "text": {
         "1": {
           "text": "life text 1",
-          "audio": "LifeScience1.wav"
+          "audio": "LifeSciences1.wav"
         },
         "2": {
           "text": "life text 2",
-          "audio": "LifeScience1.wav"
+          "audio": "LifeSciences2.wav"
         },
         "3": {
           "text": "life text 1",
-          "audio": "LifeScience3.wav"
+          "audio": "LifeSciences3.wav"
         },
         "4": {
           "text": "life text 1",
-          "audio": "LifeScience4.wav"
+          "audio": "LifeSciences4.wav"
         },
         "5": {
           "text": "life text 1",
-          "audio": "LifeScience5.wav"
+          "audio": "LifeSciences5.wav"
         },
         "6": {
           "text": "life text 1",
-          "audio": "LifeScience6.wav"
+          "audio": "LifeSciences6.wav"
         },
         "7": {
           "text": "life text 1",
-          "audio": "LifeScience7.wav"
+          "audio": "LifeSciences7.wav"
         },
         "8": {
           "text": "life text 1",
-          "audio": "LifeScience8.wav"
+          "audio": "LifeSciences8.wav"
         },
         "9": {
           "text": "life text 1",
-          "audio": "LifeScience9.wav"
+          "audio": "LifeSciences9.wav"
         },
         "10": {
           "text": "life text 1",
-          "audio": "LifeScience10.wav"
+          "audio": "LifeSciences10.wav"
         }
       }
     },
@@ -429,43 +429,43 @@
       "text": {
         "1": {
           "text": "soc text 1",
-          "audio": "SocialScience1.wav"
+          "audio": "SocialSciences1.wav"
         },
         "2": {
           "text": "soc text 2",
-          "audio": "SocialScience2.wav"
+          "audio": "SocialSciences2.wav"
         },
         "3": {
           "text": "soc text 1",
-          "audio": "SocialScience1.wav"
+          "audio": "SocialSciences3.wav"
         },
         "4": {
           "text": "soc text 1",
-          "audio": "SocialScience1.wav"
+          "audio": "SocialSciences4.wav"
         },
         "5": {
           "text": "soc text 1",
-          "audio": "SocialScience1.wav"
+          "audio": "SocialSciences5.wav"
         },
         "6": {
           "text": "soc text 1",
-          "audio": "SocialScience1.wav"
+          "audio": "SocialSciences6.wav"
         },
         "7": {
           "text": "soc text 1",
-          "audio": "SocialScience1.wav"
+          "audio": "SocialSciences7.wav"
         },
         "8": {
           "text": "soc text 1",
-          "audio": "SocialScience1.wav"
+          "audio": "SocialSciences8.wav"
         },
         "9": {
           "text": "soc text 1",
-          "audio": "SocialScience1.wav"
+          "audio": "SocialSciences9.wav"
         },
         "10": {
           "text": "soc text 1",
-          "audio": "SocialScience1.wav"
+          "audio": "SocialSciences10.wav"
         }
       }
     }

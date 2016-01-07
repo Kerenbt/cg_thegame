@@ -1,27 +1,20 @@
 import json
 import socket
+from Crypto.PublicKey import RSA
 from datetime import datetime
 from kivy.logger import Logger
 from kivy.storage.jsonstore import JsonStore
 from kivy.uix.widget import Widget
 from os.path import join
 
-from enum import Enum
 
-
-# from cryptography.hazmat.backends import default_backend
-# from cryptography.hazmat.primitives.asymmetric import rsa
-# from cryptography.hazmat.primitives import serialization
-# from cryptography.hazmat.primitives import hashes
-# from cryptography.hazmat.primitives.asymmetric import padding
-
-class DataMode(Enum):
+class DataMode:
     file = 0
     encrypted = 1
     communication = 2
 
 
-class LogAction(Enum):
+class LogAction:
     none = 0
     press = 1
     play = 2
@@ -36,11 +29,12 @@ class KL:
     log = None
 
     @staticmethod
-    def start(mode=None, pathname='/sdcard/'):
+    def start(mode=None, pathname=''):
         KL.log = KivyLogger
         KL.log.pathname = pathname
         if mode is None:
             mode = []
+            Logger.info("KL mode:" + str(mode))
         KL.log.set_mode(mode)
 
 
@@ -51,7 +45,8 @@ class KivyLogger:
     socket = None
     public_key = ''
     filename = None
-    pathname = '/sdcard/'
+    pathname = ''
+    store = None
 
     @staticmethod
     def __init__():
@@ -72,6 +67,7 @@ class KivyLogger:
         if DataMode.file in KivyLogger.base_mode:
             KivyLogger.filename = join(KivyLogger.pathname,
                                        KivyLogger.t0.strftime('%Y_%m_%d_%H_%M_%S_%f') + '.log')
+            KivyLogger.store = JsonStore(KivyLogger.filename)
             Logger.info("KivyLogger: " + str(KivyLogger.filename))
 
         if DataMode.communication in KivyLogger.base_mode:
@@ -79,8 +75,7 @@ class KivyLogger:
 
         if DataMode.encrypted in KivyLogger.base_mode:
             KivyLogger.get_public_key()
-            if KivyLogger.file is not None:
-                KivyLogger.save('public_key:' + KivyLogger.public_key)
+            KivyLogger.save('public_key:' + KivyLogger.public_key)
 
     @staticmethod
     def connect():
@@ -99,23 +94,16 @@ class KivyLogger:
     def get_public_key():
         if DataMode.communication in KivyLogger.base_mode:
             # get from communication
-            pem = KivyLogger.socket.recv(1024)
+            pub_pem = KivyLogger.socket.recv(1024)
         else:
-            private_key = rsa.generate_private_key(
-                public_exponent=65537,
-                key_size=2048,
-                backend=default_backend())
-            prv_pem = private_key.private_bytes(encoding=serialization.Encoding.PEM,
-                format=serialization.PrivateFormat.TraditionalOpenSSL,
-                encryption_algorithm=serialization.NoEncryption())
-            store = JsonStore('encrypt/' + KivyLogger.filename + '.enc')
+            private_key = RSA.generate(2048, e=65537)
+            prv_pem = private_key.exportKey("PEM")
+            store = JsonStore(KivyLogger.filename + '.enc')
             store.put('private_key', pem=prv_pem)
 
-            pem = private_key.public_key().public_bytes(
-                encoding=serialization.Encoding.PEM,
-                format=serialization.PublicFormat.SubjectPublicKeyInfo)
+            pub_pem = private_key.publickey().exportKey("PEM")
 
-        KivyLogger.public_key = serialization.load_pem_public_key(pem, backend=default_backend())
+        KivyLogger.public_key = RSA.importKey(pub_pem)
         pass
 
     @staticmethod
@@ -146,12 +134,10 @@ class KivyLogger:
 
 
     @staticmethod
-    def save(data_str, modes=[DataMode.file]):
-        if DataMode.file in modes:
-            store = JsonStore(KivyLogger.filename)
-            store.put(datetime.now().strftime('%Y_%m_%d_%H_%M_%S_%f'),
-                      data=data_str)
-            Logger.info("save:" + str(KivyLogger.filename))
+    def save(data_str):
+        KivyLogger.store.put(datetime.now().strftime('%Y_%m_%d_%H_%M_%S_%f'),
+                             data=data_str)
+        Logger.info("save:" + str(KivyLogger.filename))
 
     @staticmethod
     def to_str(log):
@@ -164,12 +150,7 @@ class KivyLogger:
     @staticmethod
     def encrypt(data_str):
         if DataMode.encrypted in KivyLogger.base_mode:
-            data_str = KivyLogger.public_key.encrypt(
-                data_str,
-                padding.OAEP(
-                    mgf=padding.MGF1(algorithm=hashes.SHA1()),
-                    algorithm=hashes.SHA1(),
-                    label=None))
+            data_str = KivyLogger.public_key.encrypt(data_str, 32)
             return data_str
         return data_str
 
@@ -185,18 +166,23 @@ class WidgetLogger(Widget):
 
     def on_touch_down(self, touch):
         if self.collide_point(*touch.pos):
-            super(WidgetLogger, self).on_touch_down(touch)
+            print("wl touch down: " + self.name)
             self.log_touch(LogAction.down, touch)
+            super(WidgetLogger, self).on_touch_down(touch)
 
     def on_touch_move(self, touch):
         if self.collide_point(*touch.pos):
-            super(WidgetLogger, self).on_touch_move(touch)
             #self.log_touch(LogAction.move, touch)
+            super(WidgetLogger, self).on_touch_move(touch)
 
     def on_touch_up(self, touch):
         if self.collide_point(*touch.pos):
-            super(WidgetLogger, self).on_touch_up(touch)
             self.log_touch(LogAction.up, touch)
+            super(WidgetLogger, self).on_touch_up(touch)
+
+    def on_press(self, *args):
+        super(WidgetLogger, self).on_press(*args)
+        KL.log.insert(action=LogAction.press, obj=self.name, comment='')
 
     def log_touch(self, action, touch):
         if KL.log is not None:

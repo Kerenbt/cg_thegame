@@ -1,13 +1,14 @@
 from kivy.graphics import Rectangle
-from kivy.storage.jsonstore import JsonStore
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.checkbox import CheckBox
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 
+from kivy_logger import *
 
-class AnswerButton(CheckBox):
+
+class AnswerButton(CheckBox, WidgetLogger):
     question = ""
     answer = ""
     form = None
@@ -75,6 +76,7 @@ class QuestionsForm(BoxLayout):
 
             for ans in dict['ans']:
                 ab = AnswerButton(size_hint_x=0.15, text="", group=str(q_counter), )
+                ab.name = str(ques) + "," + str(ans)
                 ab.question = ques
                 ab.answer = ans
                 ab.form = self

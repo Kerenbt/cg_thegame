@@ -79,7 +79,6 @@ class CuriosityGame:
         items_json = JsonStore(items_path + 'items.json')
         items_list = items_json.get('list')
         for name, value in items_list.items():
-            Logger.info(("item: " + str(name) + str(value)))
             self.items[name] = Item(do_rotation=False, do_scale=False)
             self.items[name].name = name
 
@@ -113,7 +112,7 @@ class CuriosityGame:
             self.the_widget.add_widget(value)
 
         # set the timer of the game
-        Clock.schedule_once(self.end_game, 5)
+        Clock.schedule_once(self.end_game, 60)
 
 
     def on_play(self, name, par):
