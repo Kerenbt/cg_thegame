@@ -72,9 +72,6 @@ class CuriosityGame:
         self.the_app = parent_app
         self.the_widget = CuriosityWidget()
 
-        # initialize logger
-        KL.start([DataMode.file], self.the_app.user_data_dir)
-
         # initialize items
         items_path = 'items/'
 

@@ -43,7 +43,7 @@ class KivyLogger:
     t0 = None
     base_mode = []
     socket = None
-    public_key = ''
+    public_key = None
     filename = None
     pathname = ''
     store = None
@@ -75,7 +75,7 @@ class KivyLogger:
 
         if DataMode.encrypted in KivyLogger.base_mode:
             KivyLogger.get_public_key()
-            KivyLogger.save('public_key:' + KivyLogger.public_key)
+            KivyLogger.save('public_key:' + KivyLogger.public_key.exportKey("PEM"))
 
     @staticmethod
     def connect():
@@ -136,7 +136,7 @@ class KivyLogger:
     @staticmethod
     def save(data_str):
         KivyLogger.store.put(datetime.now().strftime('%Y_%m_%d_%H_%M_%S_%f'),
-                             data=data_str)
+                             data=str(data_str).encode('ascii'))
         Logger.info("save:" + str(KivyLogger.filename))
 
     @staticmethod

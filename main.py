@@ -5,6 +5,8 @@ from cg_graphics_audio import *
 from cei2 import *
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy_logger import *
+
 
 class CuriosityApp(App):
     sm = None
@@ -13,6 +15,9 @@ class CuriosityApp(App):
     float_layout = None
 
     def build(self):
+        # initialize logger
+        KL.start([DataMode.file, DataMode.encrypted], self.user_data_dir)
+
         self.cg = CuriosityGame(self)
         self.qf = QuestionsForm()
 
