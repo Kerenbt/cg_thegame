@@ -2,20 +2,15 @@
 import kivy
 kivy.require('1.0.6')
 
-from os import listdir
-from os.path import isfile, join
-from os.path import join, dirname
-from kivy.logger import Logger
 from kivy.uix.scatter import Scatter
 from kivy.properties import StringProperty, ObjectProperty
 from kivy.core.audio import SoundLoader
-from kivy.uix.image import Image
-from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
 from functools import partial
 from kivy_logger import *
 from kivy.storage.jsonstore import JsonStore
-from kivy.graphics import Color, Rectangle
+from kivy.graphics import Rectangle
+from kivy.uix.label import Label
 
 
 class Item(Scatter, WidgetLogger):
@@ -45,12 +40,12 @@ class Item(Scatter, WidgetLogger):
                     self.info[self.current]['audio'].play()
 
     def on_play(self):
-        super(Item, self).on_play(self.info[self.current]['audio'].source)
+        super(Item, self).on_play_wl(self.info[self.current]['audio'].source)
         self.is_playing = True
         self.change_img('2')
 
     def on_stop(self):
-        super(Item, self).on_stop(self.info[self.current]['audio'].source)
+        super(Item, self).on_stop_wl(self.info[self.current]['audio'].source)
         self.is_playing = False
         self.current += 1
         CuriosityGame.current += 1
@@ -58,11 +53,8 @@ class Item(Scatter, WidgetLogger):
 
     def get_text(self):
         # if still has text
-        print('----- the info -----' + str(self.current) + str(self.info))
         if self.current in self.info:
-            print('----- the text -----' + str(self.info[self.current]))
             if 'text' in self.info[self.current]:
-                print('--- THE text ----' + str(self.info[self.current]['text']))
                 return self.info[self.current]['text'][::-1]
         return None
 
@@ -71,13 +63,14 @@ class CuriosityGame:
     items = {}
     current = 0
     the_app = None
+    the_widget = None
 
     def __init__(self, parent_app):
         self.the_app = parent_app
+        self.the_widget = CuriosityWidget()
 
         # initialize logger
         KL.start([DataMode.file], self.the_app.user_data_dir)
-        print("=== directory === ", str(KL.log.pathname))
 
         # initialize items
         items_path = 'items/'
@@ -115,82 +108,31 @@ class CuriosityGame:
                         Logger.info('audio: cant find ' + items_path + t['audio'])
 
         # set widgets
-        self.the_app.root = CuriosityWidget()
         for key, value in self.items.items():
-            self.the_app.root.add_widget(value)
-
-        '''
-        only_files = [f for f in listdir(items_path) if isfile(join(items_path, f))]
-        self.items = {}
-        for filename in only_files:
-            try:
-                full_name = filename[:-4]
-                name_spl = str.split(full_name, '_')
-                name = name_spl[0]
-                ext = filename[-3:]
-                if name not in self.items.keys():
-                    self.items[name] = Item(do_rotation=False, do_scale=False)
-                    self.items[name].name = name
-                    self.items[name].info = {}
-                    self.items[name].img = {}
-
-                # load the text
-                if ext == "txt":
-                    f = JsonStore(items_path + filename)
-                    num = int(name_spl[1])
-                    if num in self.items[name].info:
-                        self.items[name].info[num]['text'] = \
-                            f.get('info')['text']
-                    else:
-                        self.items[name].info[num] =\
-                            {"text": f.get('info')['text']}
-
-                # load the sounds
-                if ext == "wav":
-                    num = int(name_spl[1])
-                    if num in self.items[name].info:
-                        self.items[name].info[num]['audio'] = \
-                            SoundLoader.load(items_path + filename)
-                    else:
-                        self.items[name].info[num] =\
-                            {"audio": SoundLoader.load(items_path + filename)}
-                    self.items[name].info[num]['audio'].bind(
-                        on_play=partial(self.on_play, name))
-                    self.items[name].info[num]['audio'].bind(
-                        on_stop=partial(self.on_stop, name))
-
-                # load the image
-                if ext in ['jpg', 'png', 'gif']:
-                    if len(name_spl) > 1:
-                        self.items[name].img[name_spl[1]] = items_path + filename
-                    else:
-                        self.items[name].img['1'] = items_path + filename
-                    self.items[name].change_img('1')
-                    self.items[name].pos = (100*len(self.items), 50*len(self.items))
-
-            except Exception as e:
-                Logger.exception('Curiosity: Unable to load <%s>' % filename)
-            '''
+            self.the_widget.add_widget(value)
 
     def on_play(self, name, par):
         self.items[name].on_play()
         text = self.items[name].get_text()
         if text:
-            self.the_app.root.cg_lbl.text = text
+            self.the_widget.cg_lbl.text = text
 
     def on_stop(self, name, par):
         self.items[name].on_stop()
-        self.the_app.root.cg_lbl.text = ''
+        self.the_widget.cg_lbl.text = ''
 
 
 class CuriosityWidget(FloatLayout):
-    cg_lbl = ObjectProperty(None)
+    cg_lbl = None  # ObjectProperty(None)
 
     def __init__(self):
         super(CuriosityWidget, self).__init__()
         with self.canvas.before:
             self.rect = Rectangle(source='cg_background_img.jpg')
             self.bind(size=self._update_rect, pos=self._update_rect)
+        cg_lbl = Label(font_name='DejaVuSans.ttf', halign='right', text='hello world',
+                       pos=[10, 100], font_size='30sp')
+        self.add_widget(cg_lbl)
 
     def _update_rect(self, instance, value):
         self.rect.pos = instance.pos

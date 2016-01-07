@@ -1,11 +1,12 @@
 import json
 import socket
 from datetime import datetime
-from enum import Enum
 from kivy.logger import Logger
 from kivy.storage.jsonstore import JsonStore
 from kivy.uix.widget import Widget
 from os.path import join
+
+from enum import Enum
 
 
 # from cryptography.hazmat.backends import default_backend
@@ -210,8 +211,8 @@ class WidgetLogger(Widget):
 
             KL.log.insert(action=action, obj=self.name, comment=json.dumps(comment))
 
-    def on_play(self, filename):
+    def on_play_wl(self, filename):
         KL.log.insert(action=LogAction.play, obj=self.name, comment=filename)
 
-    def on_stop(self, filename):
+    def on_stop_wl(self, filename):
         KL.log.insert(action=LogAction.stop, obj=self.name, comment=filename)

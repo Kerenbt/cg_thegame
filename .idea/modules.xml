@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/curiosity_game_graphics_audio.iml" filepath="$PROJECT_DIR$/.idea/curiosity_game_graphics_audio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cg_thegame.iml" filepath="$PROJECT_DIR$/.idea/cg_thegame.iml" />
     </modules>
   </component>
 </project>

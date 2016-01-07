@@ -3,6 +3,7 @@ import kivy
 kivy.require('1.0.6')
 from cg_graphics_audio import *
 from kivy.app import App
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 
 class CuriosityApp(App):
@@ -12,6 +13,14 @@ class CuriosityApp(App):
 
     def build(self):
         self.cg = CuriosityGame(self)
+
+        sm = ScreenManager()
+        screen = Screen(name='thegame')
+        screen.add_widget(self.cg.the_widget)
+        sm.add_widget(screen)
+
+        return sm
+
 
     def on_pause(self):
         return True

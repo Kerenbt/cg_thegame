@@ -18,6 +18,38 @@
         "2": {
           "text": "art text 2",
           "audio": "art2.wav"
+        },
+        "3": {
+          "text": "art text 1",
+          "audio": "art3.wav"
+        },
+        "4": {
+          "text": "art text 1",
+          "audio": "art4.wav"
+        },
+        "5": {
+          "text": "art text 1",
+          "audio": "art5.wav"
+        },
+        "6": {
+          "text": "art text 1",
+          "audio": "art6.wav"
+        },
+        "7": {
+          "text": "art text 1",
+          "audio": "art7.wav"
+        },
+        "8": {
+          "text": "art text 1",
+          "audio": "art8.wav"
+        },
+        "9": {
+          "text": "art text 1",
+          "audio": "art9.wav"
+        },
+        "10": {
+          "text": "art text 1",
+          "audio": "art10.wav"
         }
       }
     },
@@ -39,6 +71,38 @@
         "2": {
           "text": "eng text 2",
           "audio": "engineering2.wav"
+        },
+        "3": {
+          "text": "eng text 1",
+          "audio": "engineering3.wav"
+        },
+        "4": {
+          "text": "eng text 1",
+          "audio": "engineering4.wav"
+        },
+        "5": {
+          "text": "eng text 1",
+          "audio": "engineering5.wav"
+        },
+        "6": {
+          "text": "eng text 1",
+          "audio": "engineering6.wav"
+        },
+        "7": {
+          "text": "eng text 1",
+          "audio": "engineering7.wav"
+        },
+        "8": {
+          "text": "eng text 1",
+          "audio": "engineering8.wav"
+        },
+        "9": {
+          "text": "eng text 1",
+          "audio": "engineering9.wav"
+        },
+        "10": {
+          "text": "eng text 1",
+          "audio": "engineering10.wav"
         }
       }
     },
@@ -60,6 +124,38 @@
         "2": {
           "text": "exc text 2",
           "audio": "ExactScience2.wav"
+        },
+        "3": {
+          "text": "exc text 1",
+          "audio": "ExactScience3.wav"
+        },
+        "4": {
+          "text": "exc text 1",
+          "audio": "ExactScience4.wav"
+        },
+        "5": {
+          "text": "exc text 1",
+          "audio": "ExactScience5.wav"
+        },
+        "6": {
+          "text": "exc text 1",
+          "audio": "ExactScience6.wav"
+        },
+        "7": {
+          "text": "exc text 1",
+          "audio": "ExactScience7.wav"
+        },
+        "8": {
+          "text": "exc text 1",
+          "audio": "ExactScience8.wav"
+        },
+        "9": {
+          "text": "exc text 1",
+          "audio": "ExactScience9.wav"
+        },
+        "10": {
+          "text": "exc text 1",
+          "audio": "ExactScience10.wav"
         }
       }
     },
@@ -76,11 +172,39 @@
       "text": {
         "1": {
           "text": "hum text 1",
-          "audio": "hum_1.wav"
+          "audio": "Humanities1.wav"
         },
         "2": {
           "text": "hum text 2",
-          "audio": "hum_2.wav"
+          "audio": "Humanities2.wav"
+        },
+        "3": {
+          "text": "hum text 1",
+          "audio": "Humanities3.wav"
+        },
+        "4": {
+          "text": "hum text 1",
+          "audio": "Humanities4.wav"
+        },
+        "5": {
+          "text": "hum text 1",
+          "audio": "Humanities5.wav"
+        },
+        "6": {
+          "text": "hum text 1",
+          "audio": "Humanities6.wav"
+        },
+        "7": {
+          "text": "hum text 1",
+          "audio": "Humanities7.wav"
+        },
+        "8": {
+          "text": "hum text 1",
+          "audio": "Humanities8.wav"
+        },
+        "9": {
+          "text": "hum text 1",
+          "audio": "Humanities9.wav"
         }
       }
     },
@@ -97,11 +221,39 @@
       "text": {
         "1": {
           "text": "law text 1",
-          "audio": "law_1.wav"
+          "audio": "Law1.wav"
         },
         "2": {
           "text": "law text 2",
-          "audio": "law_2.wav"
+          "audio": "Law2.wav"
+        },
+        "3": {
+          "text": "law text 1",
+          "audio": "Law3.wav"
+        },
+        "4": {
+          "text": "law text 1",
+          "audio": "Law4.wav"
+        },
+        "5": {
+          "text": "law text 1",
+          "audio": "Law5.wav"
+        },
+        "6": {
+          "text": "law text 1",
+          "audio": "Law6.wav"
+        },
+        "7": {
+          "text": "law text 1",
+          "audio": "Law7.wav"
+        },
+        "8": {
+          "text": "law text 1",
+          "audio": "Law8.wav"
+        },
+        "9": {
+          "text": "law text 1",
+          "audio": "Law9.wav"
         }
       }
     },
@@ -123,6 +275,38 @@
         "2": {
           "text": "life text 2",
           "audio": "LifeScience1.wav"
+        },
+        "3": {
+          "text": "life text 1",
+          "audio": "LifeScience3.wav"
+        },
+        "4": {
+          "text": "life text 1",
+          "audio": "LifeScience4.wav"
+        },
+        "5": {
+          "text": "life text 1",
+          "audio": "LifeScience5.wav"
+        },
+        "6": {
+          "text": "life text 1",
+          "audio": "LifeScience6.wav"
+        },
+        "7": {
+          "text": "life text 1",
+          "audio": "LifeScience7.wav"
+        },
+        "8": {
+          "text": "life text 1",
+          "audio": "LifeScience8.wav"
+        },
+        "9": {
+          "text": "life text 1",
+          "audio": "LifeScience9.wav"
+        },
+        "10": {
+          "text": "life text 1",
+          "audio": "LifeScience10.wav"
         }
       }
     },
@@ -143,7 +327,39 @@
         },
         "2": {
           "text": "man text 2",
-          "audio": "Management1.wav"
+          "audio": "Management2.wav"
+        },
+        "3": {
+          "text": "man text 1",
+          "audio": "Management3.wav"
+        },
+        "4": {
+          "text": "man text 1",
+          "audio": "Management4.wav"
+        },
+        "5": {
+          "text": "man text 1",
+          "audio": "Management5.wav"
+        },
+        "6": {
+          "text": "man text 1",
+          "audio": "Management6.wav"
+        },
+        "7": {
+          "text": "man text 1",
+          "audio": "Management7.wav"
+        },
+        "8": {
+          "text": "man text 1",
+          "audio": "Management8.wav"
+        },
+        "9": {
+          "text": "man text 1",
+          "audio": "Management9.wav"
+        },
+        "10": {
+          "text": "man text 1",
+          "audio": "Management10.wav"
         }
       }
     },
@@ -165,6 +381,38 @@
         "2": {
           "text": "med text 2",
           "audio": "medicine2.wav"
+        },
+        "3": {
+          "text": "med text 1",
+          "audio": "medicine3.wav"
+        },
+        "4": {
+          "text": "med text 1",
+          "audio": "medicine4.wav"
+        },
+        "5": {
+          "text": "med text 1",
+          "audio": "medicine5.wav"
+        },
+        "6": {
+          "text": "med text 1",
+          "audio": "medicine6.wav"
+        },
+        "7": {
+          "text": "med text 1",
+          "audio": "medicine7.wav"
+        },
+        "8": {
+          "text": "med text 1",
+          "audio": "medicine8.wav"
+        },
+        "9": {
+          "text": "med text 1",
+          "audio": "medicine9.wav"
+        },
+        "10": {
+          "text": "med text 1",
+          "audio": "medicine10.wav"
         }
       }
     },
@@ -186,6 +434,38 @@
         "2": {
           "text": "soc text 2",
           "audio": "SocialScience2.wav"
+        },
+        "3": {
+          "text": "soc text 1",
+          "audio": "SocialScience1.wav"
+        },
+        "4": {
+          "text": "soc text 1",
+          "audio": "SocialScience1.wav"
+        },
+        "5": {
+          "text": "soc text 1",
+          "audio": "SocialScience1.wav"
+        },
+        "6": {
+          "text": "soc text 1",
+          "audio": "SocialScience1.wav"
+        },
+        "7": {
+          "text": "soc text 1",
+          "audio": "SocialScience1.wav"
+        },
+        "8": {
+          "text": "soc text 1",
+          "audio": "SocialScience1.wav"
+        },
+        "9": {
+          "text": "soc text 1",
+          "audio": "SocialScience1.wav"
+        },
+        "10": {
+          "text": "soc text 1",
+          "audio": "SocialScience1.wav"
         }
       }
     }
