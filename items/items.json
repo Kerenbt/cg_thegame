@@ -1,0 +1,193 @@
+{
+  "list": {
+    "art": {
+      "label": "art",
+      "pos": {
+        "x": "50",
+        "y": "75"
+      },
+      "img": {
+        "1": "art_1.png",
+        "2": "art_2.png"
+      },
+      "text": {
+        "1": {
+          "text": "art text 1",
+          "audio": "art1.wav"
+        },
+        "2": {
+          "text": "art text 2",
+          "audio": "art2.wav"
+        }
+      }
+    },
+    "eng": {
+      "label": "engineering",
+      "pos": {
+        "x": "50",
+        "y": "650"
+      },
+      "img": {
+        "1": "eng_1.png",
+        "2": "eng_2.png"
+      },
+      "text": {
+        "1": {
+          "text": "eng text 1",
+          "audio": "engineering1.wav"
+        },
+        "2": {
+          "text": "eng text 2",
+          "audio": "engineering2.wav"
+        }
+      }
+    },
+    "exc": {
+      "label": "exact sciences",
+      "pos": {
+        "x": "450",
+        "y": "650"
+      },
+      "img": {
+        "1": "exc_1.png",
+        "2": "exc_2.png"
+      },
+      "text": {
+        "1": {
+          "text": "exc text 1",
+          "audio": "ExactScience1.wav"
+        },
+        "2": {
+          "text": "exc text 2",
+          "audio": "ExactScience2.wav"
+        }
+      }
+    },
+    "hum": {
+      "label": "humanities",
+      "pos": {
+        "x": "850",
+        "y": "650"
+      },
+      "img": {
+        "1": "hum_1.png",
+        "2": "hum_2.png"
+      },
+      "text": {
+        "1": {
+          "text": "hum text 1",
+          "audio": "hum_1.wav"
+        },
+        "2": {
+          "text": "hum text 2",
+          "audio": "hum_2.wav"
+        }
+      }
+    },
+    "law": {
+      "label": "law",
+      "pos": {
+        "x": "450",
+        "y": "75"
+      },
+      "img": {
+        "1": "law_1.png",
+        "2": "law_2.png"
+      },
+      "text": {
+        "1": {
+          "text": "law text 1",
+          "audio": "law_1.wav"
+        },
+        "2": {
+          "text": "law text 2",
+          "audio": "law_2.wav"
+        }
+      }
+    },
+    "life": {
+      "label": "life sciences",
+      "pos": {
+        "x": "850",
+        "y": "75"
+      },
+      "img": {
+        "1": "life_1.png",
+        "2": "life_2.png"
+      },
+      "text": {
+        "1": {
+          "text": "life text 1",
+          "audio": "LifeScience1.wav"
+        },
+        "2": {
+          "text": "life text 2",
+          "audio": "LifeScience1.wav"
+        }
+      }
+    },
+    "man": {
+      "label": "management",
+      "pos": {
+        "x": "1250",
+        "y": "75"
+      },
+      "img": {
+        "1": "man_1.png",
+        "2": "man_2.png"
+      },
+      "text": {
+        "1": {
+          "text": "man text 1",
+          "audio": "Management1.wav"
+        },
+        "2": {
+          "text": "man text 2",
+          "audio": "Management1.wav"
+        }
+      }
+    },
+    "med": {
+      "label": "medicine",
+      "pos": {
+        "x": "1250",
+        "y": "650"
+      },
+      "img": {
+        "1": "med_1.png",
+        "2": "med_2.png"
+      },
+      "text": {
+        "1": {
+          "text": "med text 1",
+          "audio": "medicine1.wav"
+        },
+        "2": {
+          "text": "med text 2",
+          "audio": "medicine2.wav"
+        }
+      }
+    },
+    "soc": {
+      "label": "social sciences",
+      "pos": {
+        "x": "650",
+        "y": "350"
+      },
+      "img": {
+        "1": "soc_1.png",
+        "2": "soc_2.png"
+      },
+      "text": {
+        "1": {
+          "text": "soc text 1",
+          "audio": "SocialScience1.wav"
+        },
+        "2": {
+          "text": "soc text 2",
+          "audio": "SocialScience2.wav"
+        }
+      }
+    }
+  }
+}

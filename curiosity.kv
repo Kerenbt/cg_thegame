@@ -1,0 +1,45 @@
+#:kivy 1.0
+#:import kivy kivy
+#:import win kivy.core.window
+
+<CuriosityWidget>:
+    cg_lbl:cg_lbl
+    FloatLayout:
+        orientation:'vertical'
+        Label:
+            id: cg_lbl
+            text: 'hello world'
+            font_name: 'DejaVuSans.ttf'
+            halign:'right'
+#            pos: 10, 10
+#            text_size: root.width, None
+#            size: self.texture_size
+
+
+<Item>:
+    # each time a picture is created, the image can delay the loading
+    # as soon as the image is loaded, ensure that the center is changed
+    # to the center of the screen.
+    on_size: self.center = win.Window.center
+    size: image.size
+    size_hint: None, None
+    item_lbl:item_lbl
+
+    Image:
+        id: image
+        source: root.source
+
+        # create initial image to be 400 pixels width
+        size: 400, 400 / self.image_ratio
+
+        Label:
+            id: item_lbl
+            text: "this is a test"
+            pos: 150, 150
+            font_size: '24sp'
+            color: [0, 0.1, 1, .5]
+
+
+
+
+
